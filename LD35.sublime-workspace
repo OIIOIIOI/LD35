@@ -1,0 +1,541 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"Deb",
+				"Debug.Log(message)"
+			],
+			[
+				"getax",
+				"Input.GetAxis(axisName)"
+			],
+			[
+				"zero",
+				"Vector3.zero"
+			],
+			[
+				"Inst",
+				"Instantiate"
+			],
+			[
+				"findob",
+				"Object.FindObjectOfType(type)"
+			],
+			[
+				"awak",
+				"MonoBehaviour.Awake()"
+			],
+			[
+				"GameO",
+				"GameObject"
+			],
+			[
+				"box",
+				"box-sizing"
+			],
+			[
+				"vat",
+				"vatTradTotal"
+			],
+			[
+				"$tra",
+				"$trad_fact"
+			],
+			[
+				"check",
+				"checkAll"
+			],
+			[
+				"orde",
+				"order_by_cli"
+			],
+			[
+				"te",
+				"textWidth	Float"
+			],
+			[
+				"text",
+				"TextField	class"
+			],
+			[
+				"ma",
+				"Max"
+			],
+			[
+				"Scre",
+				"Screen	[class]"
+			],
+			[
+				"Max",
+				"Max	Mathf.*(params values)"
+			],
+			[
+				"orth",
+				"orthographicSize	Camera.*"
+			],
+			[
+				"ort",
+				"orthographic	Camera.*"
+			],
+			[
+				"mai",
+				"main	Camera.*"
+			],
+			[
+				"for",
+				"for	for (…) {…}"
+			],
+			[
+				"fun",
+				"fun	Function"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "src/Main.hx",
+			"settings":
+			{
+				"buffer_size": 258,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 400.0,
+		"last_filter": "list",
+		"selected_items":
+		[
+			[
+				"list",
+				"Package Control: List Packages"
+			],
+			[
+				"Package Control: ins",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: insta",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: inst",
+				"Package Control: Install Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"ssun",
+				"Set Syntax: Unity C#"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"packa",
+				"Package Control: List Packages"
+			],
+			[
+				"ssc",
+				"Set Syntax: C#"
+			],
+			[
+				"ssu",
+				"Set Syntax: Unity C#"
+			],
+			[
+				"package",
+				"Package Control: List Packages"
+			],
+			[
+				"Snippet: fun",
+				"Snippet: Function"
+			],
+			[
+				"ssjs",
+				"Set Syntax: JSON"
+			],
+			[
+				"ssht",
+				"Set Syntax: HTML"
+			]
+		],
+		"width": 480.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Projects/LD35Haxe",
+		"/C/Projects/LD35Haxe/src"
+	],
+	"file_history":
+	[
+		"/C/Projects/GGSTest/src/Asteroid.hx",
+		"/C/Projects/GGSTest/src/Bullet.hx",
+		"/C/Projects/GGSTest/src/Controls.hx",
+		"/C/Projects/GGSTest/src/EnemyCharger.hx",
+		"/C/Projects/GGSTest/src/EnemyBullet.hx",
+		"/C/Projects/GGSTest/src/EnemyTurret.hx",
+		"/C/Projects/GGSTest/src/EnemySniper.hx",
+		"/C/Projects/GGSTest/src/Game.hx",
+		"/C/Projects/GGSTest/src/Entity.hx",
+		"/C/Projects/GGSTest/src/Main.hx",
+		"/C/Projects/GGSTest/src/GameOver.hx",
+		"/C/Projects/GGSTest/src/MovingEntity.hx",
+		"/C/Projects/GGSTest/src/Particle.hx",
+		"/C/Projects/GGSTest/src/Player.hx",
+		"/C/Projects/GGSTest/src/Pause.hx",
+		"/C/Projects/GGSTest/src/SoundMan.hx",
+		"/C/Projects/GGSTest/src/Sprites.hx",
+		"/C/Projects/GGSTest/src/StartArea.hx",
+		"/C/Projects/GGSTest/src/Points.hx",
+		"/C/Projects/GGSTest/src/WaveMan.hx",
+		"/C/Projects/GGSTest/src/UI.hx",
+		"/C/Projects/LD35/Assets/Scripts/Player.cs",
+		"/C/Users/01101101/Desktop/new  0.txt",
+		"/C/Users/01101101/Desktop/steam.txt",
+		"/C/Projects/LD35/LD35.sublime-project",
+		"/C/Users/01101101/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/C/Users/01101101/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/Projects/LD34/Assets/Scripts/Game.cs",
+		"/C/Projects/LD35/Assets/TestScript.cs",
+		"/C/Projects/Games/Moutons2/Assets/Scripts/LevelMan.cs",
+		"/C/Users/01101101/AppData/Roaming/Sublime Text 3/Packages/SideBarEnhancements/Side Bar.sublime-settings",
+		"/D/ST3.txt",
+		"/C/Projects/Web/Julie/infos.txt",
+		"/C/Projects/Web/Julie/changes.txt",
+		"/C/Projects/Web/Julie/www/contenu.txt",
+		"/C/Downloads/IVT BlueSoleil v10.0.479.1 (2014) Full [TorDigger]/Serial.txt",
+		"/C/Downloads/IVT BlueSoleil v10.0.479.1 (2014) Full [TorDigger]/ReadMe!.txt",
+		"/C/Projects/Web/pingouin/index.html",
+		"/C/Projects/Web/Julie/CI3/application/views/totaux/index_js.php",
+		"/C/Projects/Web/Julie/CI3/application/views/totaux/index.php",
+		"/C/Projects/Web/Julie/CI3/application/models/Facture_trad_model.php",
+		"/C/Projects/Web/Julie/CI3/application/views/templates/header.php",
+		"/C/Projects/Web/Julie/CI3/application/views/accueil/index.php",
+		"/C/Projects/Web/Julie/CI3/application/controllers/Totaux.php",
+		"/C/Users/01101101/Desktop/top films.txt",
+		"/C/Projects/Web/Julie/CI3/application/views/tva/index_js.php",
+		"/C/Projects/Web/Julie/CI3/application/views/tva/index.php",
+		"/C/Projects/Web/Julie/CI3/application/controllers/TVA.php",
+		"/C/Projects/Web/Julie/CI3/application/models/Facture_free_model.php",
+		"/C/Projects/Web/Julie/CI3/application/controllers/Stats.php",
+		"/C/Projects/Web/Julie/CI3/application/models/Reference_model.php",
+		"/C/Projects/Web/Julie/CI3/application/models/Client_model.php",
+		"/C/Projects/Web/Julie/CI3/application/models/Traducteur_model.php",
+		"/C/Projects/Web/Julie/CI3/application/controllers/References.php",
+		"/C/Projects/Web/Julie/CI3/application/controllers/Factures_trad.php",
+		"/C/Projects/Web/Julie/CI3/application/controllers/Factures_STI.php",
+		"/C/Users/01101101/AppData/Roaming/Sublime Text 3/Packages/BracketHighlighter/bh_core.sublime-settings",
+		"/C/Users/01101101/Desktop/ftp.txt",
+		"/C/Projects/Web/Julie/CI3/application/models/Facture_sti_model.php",
+		"/C/Projects/Web/Julie/CI3/application/controllers/Traducteurs.php",
+		"/C/Projects/Web/Julie/CI3/application/views/factures_trad/add.php",
+		"/C/Projects/Web/Julie/CI3/application/views/factures_sti/add.php",
+		"/C/Projects/Web/Julie/CI3/application/views/references/check_list_in.php",
+		"/C/Projects/Web/Julie/CI3/application/views/references/check_list_out.php",
+		"/C/Projects/Web/Julie/CI3/application/views/factures_libres/add.php",
+		"/C/Projects/Web/Julie/CI3/application/views/factures_libres/add_js.php",
+		"/C/Projects/Web/Julie/CI3/application/views/factures_trad/add_js.php",
+		"/C/Projects/Web/Julie/CI3/application/views/factures_sti/add_js.php",
+		"/C/Projects/Web/Julie/CI3/application/views/references/index.php",
+		"/C/Projects/Web/Julie/CI3/application/views/references/edit_js.php",
+		"/C/Projects/Web/Julie/CI3/application/views/references/edit.php",
+		"/C/Projects/Web/Julie/CI3/application/views/references/set_ht.php",
+		"/C/Projects/Web/Julie/CI3/application/views/references/set_ht_js.php",
+		"/C/Projects/Web/Julie/CI3/application/views/references/set_status_js.php",
+		"/C/Projects/Web/Julie/CI3/application/views/references/set_status.php",
+		"/C/Projects/Web/Julie/CI3/application/controllers/Accueil.php",
+		"/C/Projects/Games/PaperFighter/src/Main.hx",
+		"/C/Projects/Games/PaperFighter/project.xml",
+		"/C/Users/01101101/AppData/Roaming/Sublime Text 3/Packages/Default/Default (Windows).sublime-keymap",
+		"/C/Projects/Games/Larry/Assets/Scripts/AdjustCamera.cs",
+		"/C/Projects/Games/Larry/larry.sublime-project",
+		"/C/Projects/DoSomething/app/views/do.html",
+		"/C/Projects/DoSomething/app/scripts/controllers/do.js",
+		"/C/Projects/DoSomething/app/index.html",
+		"/C/Projects/DoSomething/app/data/france.json",
+		"/C/Projects/DoSomething/do.sublime-project"
+	],
+	"find":
+	{
+		"height": 40.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"C:\\Projects\\Web\\Julie\\CI3",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"file",
+			"tab",
+			"right",
+			"left",
+			"get_refs",
+			"ref-table",
+			"get_by_cli",
+			"complete_data",
+			"ret_mode_uid",
+			"statuses_select",
+			"selCountry",
+			"data",
+			"Data",
+			"data"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "src/Main.hx",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 258,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								258,
+								258
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content"
+							],
+							"haxe-build-id": 0,
+							"syntax": "Packages/Haxe/Haxe.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 22.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 100.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "LD35.sublime-project",
+	"replace":
+	{
+		"height": 40.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"index",
+				"index.html"
+			],
+			[
+				"inde",
+				"index.html"
+			],
+			[
+				"fran",
+				"data\\france.json"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 222.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
