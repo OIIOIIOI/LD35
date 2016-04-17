@@ -30,7 +30,8 @@ class Enemy extends MovingEntity
 		xVel = velMax * Math.cos(angle);
 		yVel = velMax * Math.sin(angle);
 
-		growTick = growDelay = 120;
+		growTick = 20;
+		growDelay = 120;
 		isInAura = false;
 	}
 
@@ -94,6 +95,10 @@ class Enemy extends MovingEntity
 	function applySize (up:Bool = true)
 	{
 		setAnim(sizes[currentSize]);
+
+		var diff = collRadius - cx;
+		x += diff;
+		y += diff;
 		collRadius = cx;
 
 		var mod = 1.2;

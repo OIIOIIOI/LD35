@@ -49,21 +49,22 @@ class Game extends Sprite
 		
 		super();
 		
+		// Setup canvas
+		canvasData = new BitmapData(WIDTH, HEIGHT, false);
+		canvas = new Bitmap(canvasData);
+		canvas.x = canvas.y = 0;
+		addChild(canvas);
+
 		reset();
 		addEventListener(Event.ENTER_FRAME, update);
 	}
 
 	function reset ()
 	{
-		// Setup canvas
-		canvasData = new BitmapData(WIDTH, HEIGHT, false);
-		canvas = new Bitmap(canvasData);
-		canvas.x = canvas.y = 0;
-		addChild(canvas);
-		
 		entities = [];
 
-		spawnTick = spawnDelay = 30;
+		spawnDelay = 300;
+		spawnTick = 10;
 
 		hasGameStarted = hasGameEnded = false;
 
@@ -139,8 +140,6 @@ class Game extends Sprite
 		}
 		e.x = xx;
 		e.y = yy;
-		// e.x = Std.random(WIDTH - 2*e.cx);
-		// e.y = Std.random(HEIGHT - 2*e.cy);
 		entities.push(e);
 		// Put the player back on top
 		if (playerOnTop) {
@@ -191,38 +190,6 @@ class Game extends Sprite
 		// Player/anything collisions
 		else if (Std.is(ea, Player) || Std.is(eb, Player))
 			endGame();
-
-		// if (ea.collType == CollType.AURA && eb.collType == CollType.ENEMY)
-		// {
-		// 	// var enemy = cast(eb, Enemy);
-		// 	if (Std.is(ea, Aura) && Std.is(eb, Enemy))
-		// 	{
-		// 		trace("shrink "+eb);
-		// 		cast(eb, Enemy).shrink();
-		// 	}
-			/*var ena = cast(ea, Enemy);
-			var enb = cast(eb, Enemy);
-			var ang = Math.atan2(ea.y-eb.y, ea.x-eb.x);
-			var diff = (ea.collRadius + eb.collRadius) - dist;
-			diff *= 0.5;
-
-			var velTotal = ena.velMax + enb.velMax;
-			var ratioa = ena.velMax / velTotal;
-			var ratiob = 1 - ratioa;
-
-			ena.x += Math.cos(ang) * diff;
-			ena.y += Math.sin(ang) * diff;
-			enb.x -= Math.cos(ang) * diff;
-			enb.y -= Math.sin(ang) * diff;
-			ena.xVel = velTotal * ratiob * Math.cos(ang);
-			ena.yVel = velTotal * ratiob * Math.sin(ang);
-			enb.xVel = velTotal * ratioa * -Math.cos(ang);
-			enb.yVel = velTotal * ratioa * -Math.sin(ang);*/
-			// ena.xVel = 0;
-			// ena.yVel = 0;
-			// enb.xVel = 0;
-			// enb.yVel = 0;
-		// }
 	}
 	
 	public function getDistance (ea:Entity, eb:Entity) :Float
