@@ -75,10 +75,7 @@ class Entity
 		cy = Std.int(h / 2);
 	}
 	
-	public function update ()
-	{
-		
-	}
+	public function update () { }
 
 	public function postUpdate ()
 	{
@@ -105,4 +102,5 @@ enum CollType
 	PLAYER;
 	AURA;
 	ENEMY;
+	BONUS;
 }

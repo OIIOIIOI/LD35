@@ -8,6 +8,7 @@ import openfl.display.BitmapData;
 import openfl.display.Sprite;
 import openfl.errors.Error;
 import openfl.events.Event;
+import openfl.geom.Matrix;
 import openfl.geom.Point;
 import openfl.geom.Rectangle;
 import openfl.ui.Keyboard;
@@ -63,7 +64,10 @@ class Game extends Sprite
 		canvas.x = canvas.y = -shakeOffset;
 		addChild(canvas);
 
+		addChild(UI.INST.canvas);
+
 		reset();
+
 		addEventListener(Event.ENTER_FRAME, update);
 	}
 
@@ -86,6 +90,8 @@ class Game extends Sprite
 		player.x = WIDTH / 2;
 		player.y = HEIGHT / 2;
 		player.currentMove = Move.CONTROLLED;
+
+		UI.INST.reset();
 	}
 
 	function startGame ()
@@ -146,6 +152,9 @@ class Game extends Sprite
 		}
 		// Clean up dead particles
 		particles = particles.filter(filterDead);
+
+		// Update UI
+		UI.INST.update();
 
 		// Render
 		render();
@@ -224,7 +233,7 @@ class Game extends Sprite
 		}
 	}
 	
-	function filterDead (e:Entity) :Bool
+	public function filterDead (e:Entity) :Bool
 	{
 		return !e.isDead;
 	}
@@ -263,6 +272,10 @@ class Game extends Sprite
 			enemyInAura(cast(eb, Enemy));
 		else if (Std.is(ea, Enemy) && Std.is(eb, Aura))
 			enemyInAura(cast(ea, Enemy));
+		else if (Std.is(ea, Player) && Std.is(eb, Bonus))
+			trace("PICK UP BONUS");
+		else if (Std.is(ea, Bonus) && Std.is(eb, Player))
+			trace("PICK UP BONUS");
 		// Player/anything collisions
 		else if (Std.is(ea, Player) || Std.is(eb, Player))
 			endGame();
@@ -299,6 +312,8 @@ class Game extends Sprite
 		for (p in particles) {
 			Sprites.draw(canvasData, p.spriteID, p.x, p.y, p.frame);
 		}
+		// Render UI
+		UI.INST.render();
 	}
 	
 	public function shake (amount:Int, duration:Int, mode:ShakeMode = null)

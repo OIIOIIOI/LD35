@@ -2,19 +2,19 @@ package;
 
 import Entity;
 
-class Ammo extends MovingEntity
+class Bonus extends MovingEntity
 {
 	
 	public function new ()
 	{
 		super();
 
-		setAnim(Sprites.AMMO);
-		velMax = 1.5;
+		setAnim(Sprites.BONUS);
+		velMax = 5;
 
 		collRadius = cx;
-		// collType = CollType.AURA;
-		// collList.push(CollType.ENEMY);
+		collType = CollType.BONUS;
+		collList.push(CollType.PLAYER);
 	}
 
 	override public function update ()

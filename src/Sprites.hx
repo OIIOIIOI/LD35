@@ -15,7 +15,8 @@ class Sprites
 	static public var SIZE_B:String = "size_b";
 	static public var SIZE_C:String = "size_c";
 	static public var AURA:String = "aura";
-	static public var AMMO:String = "ammo";
+	static public var BONUS:String = "bonus";
+	static public var FONT:String = "font";
 
 	static public var DEFAULT_PART:String = "default_part";
 	static public var SIZE_A_PART:String = "size_a_part";
@@ -35,7 +36,8 @@ class Sprites
 		sprites.set(SIZE_B, { data:Assets.getBitmapData("img/enemy_1.png"), frames:12, delay:6 });
 		sprites.set(SIZE_C, { data:Assets.getBitmapData("img/enemy_2.png"), frames:2, delay:8 });
 		sprites.set(AURA, { data:Assets.getBitmapData("img/aura.png"), frames:1, delay:0 });
-		sprites.set(AMMO, { data:Assets.getBitmapData("img/ammo.png"), frames:2, delay:10 });
+		sprites.set(BONUS, { data:Assets.getBitmapData("img/bonus.png"), frames:2, delay:10 });
+		sprites.set(FONT, { data:Assets.getBitmapData("img/font.png"), frames:10, delay:0 });
 		
 		sprites.set(DEFAULT_PART, { data:new BitmapData(2, 2, false, 0xFFFFFFFF), frames:1, delay:0 });
 		sprites.set(SIZE_A_PART, { data:Assets.getBitmapData("img/parts_0.png"), frames:4, delay:10 });

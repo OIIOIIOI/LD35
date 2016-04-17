@@ -130,7 +130,7 @@ class Enemy extends MovingEntity
 				}
 				else
 				{
-					var e = new Ammo();
+					var e = new Bonus();
 					e.x = x;
 					e.y = y;
 					Game.INST.spawnEntity(e);

@@ -15,8 +15,11 @@ class Main extends Sprite
 	public function new () 
 	{
 		super();
+
 		Controls.init();
 		Sprites.init();
+		UI.init();
+
 		Lib.current.stage.addChild(new Game());
 	}
 

@@ -18,6 +18,7 @@ class Player extends MovingEntity
 		collRadius = cx;
 		collType = CollType.PLAYER;
 		collList.push(CollType.ENEMY);
+		collList.push(CollType.BONUS);
 		
 		friction = 0.85;
 		xVelMax = 3;
