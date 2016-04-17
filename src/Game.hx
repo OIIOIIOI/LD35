@@ -63,7 +63,7 @@ class Game extends Sprite
 		
 		entities = [];
 
-		spawnTick = spawnDelay = 120;
+		spawnTick = spawnDelay = 30;
 
 		hasGameStarted = hasGameEnded = false;
 
@@ -130,8 +130,17 @@ class Game extends Sprite
 	function spawnEnemy (playerOnTop:Bool = true)
 	{
 		var e = new Enemy();
-		e.x = Std.random(WIDTH - 2*e.cx);
-		e.y = Std.random(HEIGHT - 2*e.cy);
+		var xx = player.x;
+		var yy = player.y;
+		while (getDistanceXY(xx, yy, player.x, player.y) <= Sprites.getSheet(Sprites.AURA).data.height/2)
+		{
+			xx = Std.random(WIDTH - 2*e.cx);
+			yy = Std.random(HEIGHT - 2*e.cy);
+		}
+		e.x = xx;
+		e.y = yy;
+		// e.x = Std.random(WIDTH - 2*e.cx);
+		// e.y = Std.random(HEIGHT - 2*e.cy);
 		entities.push(e);
 		// Put the player back on top
 		if (playerOnTop) {
@@ -152,14 +161,14 @@ class Game extends Sprite
 		{
 			var ea = entities[i];
 			// Skip entity if dead
-			if (ea.isDead)
+			if (ea == null || ea.isDead)
 				continue;
 			
 			for (j in i + 1...entities.length) 
 			{
 				var eb = entities[j];
 				// Skip entity if dead
-				if (eb.isDead)
+				if (eb == null || eb.isDead)
 					continue;
 				// Skip check if entities are not supposed to collide
 				if (ea.collList.indexOf(eb.collType) == -1)
@@ -174,11 +183,12 @@ class Game extends Sprite
 	
 	function resolveCollision (ea:Entity, eb:Entity, dist:Float)
 	{
+		// Enemy/Aura collisions
 		if (Std.is(ea, Aura) && Std.is(eb, Enemy))
 			cast(eb, Enemy).isInAura = true;
 		else if (Std.is(ea, Enemy) && Std.is(eb, Aura))
 			cast(ea, Enemy).isInAura = true;
-		// Player collision
+		// Player/anything collisions
 		else if (Std.is(ea, Player) || Std.is(eb, Player))
 			endGame();
 
@@ -219,6 +229,13 @@ class Game extends Sprite
 	{
 		var dx = (eb.x + eb.cx) - (ea.x + ea.cx);
 		var dy = (eb.y + eb.cy) - (ea.y + ea.cy);
+		return Math.sqrt(dx * dx + dy * dy);
+	}
+	
+	public function getDistanceXY (eax:Float, eay:Float, ebx:Float, eby:Float) :Float
+	{
+		var dx = ebx - eax;
+		var dy = eby - eay;
 		return Math.sqrt(dx * dx + dy * dy);
 	}
 	
