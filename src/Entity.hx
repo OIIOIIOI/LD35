@@ -25,6 +25,10 @@ class Entity
 	// Sprite center
 	public var cx:Int;
 	public var cy:Int;
+
+	// Render offset
+	public var rox:Int;
+	public var roy:Int;
 	
 	// Collision settings
 	public var collRadius:Int;
@@ -37,6 +41,7 @@ class Entity
 	{
 		setAnim("");
 		x = y = 0;
+		rox = roy = 0;
 		collRadius = 0;
 		collList = [];
 		isDead = false;

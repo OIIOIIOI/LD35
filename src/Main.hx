@@ -16,7 +16,6 @@ class Main extends Sprite
 		super();
 		Controls.init();
 		Sprites.init();
-		// Lib.current.stage.addChild(new MainScreen());
 		Lib.current.stage.addChild(new Game());
 	}
 

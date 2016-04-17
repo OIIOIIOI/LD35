@@ -36,6 +36,11 @@ class Game extends Sprite
 
 	var spawnDelay:Int;
 	var spawnTick:Int;
+	
+	public var shakeOffset:Int = 10;
+	var shakeAmount:Int = 3;
+	var shakeTick:Int;
+	var shakeMode:ShakeMode;
 
 	var hasGameStarted:Bool;
 	var hasGameEnded:Bool;
@@ -50,9 +55,9 @@ class Game extends Sprite
 		super();
 		
 		// Setup canvas
-		canvasData = new BitmapData(WIDTH, HEIGHT, false);
+		canvasData = new BitmapData(WIDTH + 2 * shakeOffset, HEIGHT + 2 * shakeOffset, false);
 		canvas = new Bitmap(canvasData);
-		canvas.x = canvas.y = 0;
+		canvas.x = canvas.y = -shakeOffset;
 		addChild(canvas);
 
 		reset();
@@ -63,8 +68,10 @@ class Game extends Sprite
 	{
 		entities = [];
 
-		spawnDelay = 300;
+		spawnDelay = 120;
 		spawnTick = 10;
+		shakeTick = 0;
+		shakeMode = ShakeMode.FIXED;
 
 		hasGameStarted = hasGameEnded = false;
 
@@ -116,21 +123,39 @@ class Game extends Sprite
 		for (e in entities) {
 			e.update();
 		}
+
 		// Collision checks
 		checkCollisions();
+
 		// Clean up dead entities
 		entities = entities.filter(filterDead);
-		// Update entities
+
+		// Post update entities
 		for (e in entities) {
 			e.postUpdate();
 		}
+
 		// Render
 		render();
-	}
 
+		// Screen shake
+		if (shakeTick > 0) {
+			var sa:Float = shakeAmount;
+			if (shakeMode == ShakeMode.RANDOM)
+				sa = Math.random()*shakeAmount;
+			canvas.x = -shakeOffset + sa * Std.random(2) * 2 - 1;
+			canvas.y = -shakeOffset + sa * Std.random(2) * 2 - 1;
+			shakeTick--;
+		}
+		else if (shakeTick == 0) {
+			canvas.x = canvas.y = -shakeOffset;
+			shakeTick--;
+		}
+	}
+	
 	function spawnEnemy (playerOnTop:Bool = true)
 	{
-		var e = new Enemy();
+		var e = new Enemy(0);
 		var xx = player.x;
 		var yy = player.y;
 		while (getDistanceXY(xx, yy, player.x, player.y) <= Sprites.getSheet(Sprites.AURA).data.height/2)
@@ -140,6 +165,11 @@ class Game extends Sprite
 		}
 		e.x = xx;
 		e.y = yy;
+		spawnEntity(e);
+	}
+	
+	public function spawnEntity (e:Entity, playerOnTop:Bool = true)
+	{
 		entities.push(e);
 		// Put the player back on top
 		if (playerOnTop) {
@@ -184,12 +214,17 @@ class Game extends Sprite
 	{
 		// Enemy/Aura collisions
 		if (Std.is(ea, Aura) && Std.is(eb, Enemy))
-			cast(eb, Enemy).isInAura = true;
+			enemyInAura(cast(eb, Enemy));
 		else if (Std.is(ea, Enemy) && Std.is(eb, Aura))
-			cast(ea, Enemy).isInAura = true;
+			enemyInAura(cast(ea, Enemy));
 		// Player/anything collisions
 		else if (Std.is(ea, Player) || Std.is(eb, Player))
 			endGame();
+	}
+
+	function enemyInAura (e:Enemy)
+	{
+		e.isInAura = true;
 	}
 	
 	public function getDistance (ea:Entity, eb:Entity) :Float
@@ -212,12 +247,27 @@ class Game extends Sprite
 		canvasData.fillRect(canvasData.rect, 0xFF11111F);
 		// Render entities
 		for (e in entities) {
-			Sprites.draw(canvasData, e.spriteID, e.x, e.y, e.frame);
+			Sprites.draw(canvasData, e.spriteID, e.x + e.rox, e.y + e.roy, e.frame);
+		}
+	}
+	
+	public function shake (amount:Int, duration:Int, mode:ShakeMode = null)
+	{
+		if (mode == null)
+			mode = ShakeMode.FIXED;
+		// Apply screen shake if none is taking place currently
+		// or if new one is at least as strong
+		// or if new one is fixed
+		if (shakeTick == -1 || amount >= shakeAmount || mode == ShakeMode.FIXED) {
+			shakeAmount = amount;
+			shakeTick = duration;
+			shakeMode = mode;
 		}
 	}
 
 	function endGame ()
 	{
+		shake(5, 60);
 		hasGameEnded = true;
 		player.currentMove = Move.STATIC;
 		player.xVel = player.yVel = 0;
@@ -225,4 +275,10 @@ class Game extends Sprite
 		entities.remove(aura);
 	}
 
+}
+
+enum ShakeMode
+{
+	FIXED;
+	RANDOM;
 }
