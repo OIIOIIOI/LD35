@@ -45,9 +45,9 @@ class Enemy extends MovingEntity
 
 		isInAura = false;
 
-		if (x+cx > Game.WIDTH || x+cx < 0)
+		if (x+cx > Game.WIDTH + Game.INST.shakeOffset || x+cx < Game.INST.shakeOffset)
 			xVel = -xVel;
-		if (y+cy > Game.HEIGHT || y+cy < 0)
+		if (y+cy > Game.HEIGHT + Game.INST.shakeOffset || y+cy < Game.INST.shakeOffset)
 			yVel = -yVel;
 	}
 
@@ -57,6 +57,7 @@ class Enemy extends MovingEntity
 
 		if (isInAura)
 		{
+			UI.INST.addToScore(1);
 			shrink();
 			rox = Std.random(2)*2-1;
 			roy = Std.random(2)*2-1;

@@ -10,7 +10,7 @@ class Bonus extends MovingEntity
 		super();
 
 		setAnim(Sprites.BONUS);
-		velMax = 5;
+		velMax = 8;
 
 		collRadius = cx;
 		collType = CollType.BONUS;
@@ -24,6 +24,12 @@ class Bonus extends MovingEntity
 		var angle = Math.atan2(Game.INST.player.y + Game.INST.player.cy - y - cy, Game.INST.player.x + Game.INST.player.cx - x - cx);
 		xVel = velMax * Math.cos(angle);
 		yVel = velMax * Math.sin(angle);
+	}
+
+	public function pickUp ()
+	{
+		UI.INST.addToScore(250);
+		isDead = true;
 	}
 
 }

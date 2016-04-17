@@ -273,9 +273,9 @@ class Game extends Sprite
 		else if (Std.is(ea, Enemy) && Std.is(eb, Aura))
 			enemyInAura(cast(ea, Enemy));
 		else if (Std.is(ea, Player) && Std.is(eb, Bonus))
-			trace("PICK UP BONUS");
+			cast(eb, Bonus).pickUp();
 		else if (Std.is(ea, Bonus) && Std.is(eb, Player))
-			trace("PICK UP BONUS");
+			cast(ea, Bonus).pickUp();
 		// Player/anything collisions
 		else if (Std.is(ea, Player) || Std.is(eb, Player))
 			endGame();
@@ -332,6 +332,7 @@ class Game extends Sprite
 
 	function endGame ()
 	{
+		SoundMan.playOnce(SoundMan.PLAYER_DEATH);
 		shake(5, 60);
 		hasGameEnded = true;
 		player.currentMove = Move.STATIC;
