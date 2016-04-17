@@ -1,6 +1,7 @@
 package;
 
 import Entity;
+import Particle;
 import openfl.geom.Point;
 
 class Enemy extends MovingEntity
@@ -54,12 +55,22 @@ class Enemy extends MovingEntity
 	{
 		super.postUpdate();
 
-		if (isInAura) {
+		if (isInAura)
+		{
+			shrink();
 			rox = Std.random(2)*2-1;
 			roy = Std.random(2)*2-1;
-			shrink();
+			var pType = switch (currentSize)
+			{
+				case 0:		ParticleType.SIZE_A_PART;
+				case 1:		ParticleType.SIZE_B_PART;
+				case 2:		ParticleType.SIZE_C_PART;
+				default:	ParticleType.DEFAULT;
+			}
+			Game.INST.spawnParticles(pType, x + cx, y + cy, 1);
 		}
-		else {
+		else
+		{
 			rox = roy = 0;
 			grow();
 		}
@@ -110,9 +121,20 @@ class Enemy extends MovingEntity
 					Game.INST.spawnEntity(e);
 
 					Game.INST.shake(4, 7);
+
+					var pType = switch (Std.random(2)) {
+						case 0:		ParticleType.SPLIT_A;
+						default:	ParticleType.SPLIT_B;
+					}
+					Game.INST.spawnFollowParticles(pType, this);
 				}
 				else
 				{
+					var e = new Ammo();
+					e.x = x;
+					e.y = y;
+					Game.INST.spawnEntity(e);
+
 					Game.INST.shake(5, 12);
 				}
 			}

@@ -2,6 +2,7 @@ package;
 
 import Entity;
 import MovingEntity;
+import Particle;
 import openfl.display.Bitmap;
 import openfl.display.BitmapData;
 import openfl.display.Sprite;
@@ -31,6 +32,8 @@ class Game extends Sprite
 	var canvasData:BitmapData;
 
 	var entities:Array<Entity>;
+	var particles:Array<Particle>;
+
 	public var player:Player;
 	var aura:Aura;
 
@@ -67,6 +70,7 @@ class Game extends Sprite
 	function reset ()
 	{
 		entities = [];
+		particles = [];
 
 		spawnDelay = 120;
 		spawnTick = 10;
@@ -134,6 +138,14 @@ class Game extends Sprite
 		for (e in entities) {
 			e.postUpdate();
 		}
+		
+		// Update particles
+		for (p in particles) {
+			p.update();
+			p.postUpdate();
+		}
+		// Clean up dead particles
+		particles = particles.filter(filterDead);
 
 		// Render
 		render();
@@ -152,7 +164,7 @@ class Game extends Sprite
 			shakeTick--;
 		}
 	}
-	
+
 	function spawnEnemy (playerOnTop:Bool = true)
 	{
 		var e = new Enemy(0);
@@ -167,7 +179,7 @@ class Game extends Sprite
 		e.y = yy;
 		spawnEntity(e);
 	}
-	
+
 	public function spawnEntity (e:Entity, playerOnTop:Bool = true)
 	{
 		entities.push(e);
@@ -175,6 +187,40 @@ class Game extends Sprite
 		if (playerOnTop) {
 			entities.remove(player);
 			entities.push(player);
+		}
+	}
+	
+	public function spawnParticles (t:ParticleType, px:Float, py:Float, amount:Int = 1)
+	{
+		switch (t)
+		{
+			default:
+				for (i in 0...amount)
+				{
+					var p = new Particle(t);
+					p.x = px + (Std.random(2)*2-1) * 4;
+					p.y = py + (Std.random(2)*2-1) * 4;
+					p.x -= p.cx;
+					p.y -= p.cy;
+					particles.push(p);
+				}
+		}
+	}
+	
+	public function spawnFollowParticles (t:ParticleType, e:MovingEntity, amount:Int = 1)
+	{
+		switch (t)
+		{
+			default:
+				for (i in 0...amount)
+				{
+					var p = new Particle(t);
+					p.x = e.x + e.cx - p.cx;
+					p.y = e.y + e.cy - p.cy;
+					p.xVel = e.xVel;
+					p.yVel = e.yVel;
+					particles.push(p);
+				}
 		}
 	}
 	
@@ -248,6 +294,10 @@ class Game extends Sprite
 		// Render entities
 		for (e in entities) {
 			Sprites.draw(canvasData, e.spriteID, e.x + e.rox, e.y + e.roy, e.frame);
+		}
+		// Render particles
+		for (p in particles) {
+			Sprites.draw(canvasData, p.spriteID, p.x, p.y, p.frame);
 		}
 	}
 	

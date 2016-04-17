@@ -11,10 +11,18 @@ class Sprites
 {
 
 	static public var PLAYER:String = "player";
-	static public var AURA:String = "aura";
 	static public var SIZE_A:String = "size_a";
 	static public var SIZE_B:String = "size_b";
 	static public var SIZE_C:String = "size_c";
+	static public var AURA:String = "aura";
+	static public var AMMO:String = "ammo";
+
+	static public var DEFAULT_PART:String = "default_part";
+	static public var SIZE_A_PART:String = "size_a_part";
+	static public var SIZE_B_PART:String = "size_b_part";
+	static public var SIZE_C_PART:String = "size_c_part";
+	static public var SPLIT_A:String = "split_a";
+	static public var SPLIT_B:String = "split_b";
 	
 	static var sprites:Map<String, SpriteSheet>;
 
@@ -23,10 +31,18 @@ class Sprites
 		sprites = new Map();
 		// Store all assets and animation infos
 		sprites.set(PLAYER, { data:Assets.getBitmapData("img/player.png"), frames:1, delay:0 });
-		sprites.set(AURA, { data:Assets.getBitmapData("img/aura.png"), frames:1, delay:0 });
 		sprites.set(SIZE_A, { data:Assets.getBitmapData("img/enemy_0.png"), frames:4, delay:4 });
 		sprites.set(SIZE_B, { data:Assets.getBitmapData("img/enemy_1.png"), frames:12, delay:6 });
 		sprites.set(SIZE_C, { data:Assets.getBitmapData("img/enemy_2.png"), frames:2, delay:8 });
+		sprites.set(AURA, { data:Assets.getBitmapData("img/aura.png"), frames:1, delay:0 });
+		sprites.set(AMMO, { data:Assets.getBitmapData("img/ammo.png"), frames:2, delay:10 });
+		
+		sprites.set(DEFAULT_PART, { data:new BitmapData(2, 2, false, 0xFFFFFFFF), frames:1, delay:0 });
+		sprites.set(SIZE_A_PART, { data:Assets.getBitmapData("img/parts_0.png"), frames:4, delay:10 });
+		sprites.set(SIZE_B_PART, { data:Assets.getBitmapData("img/parts_1.png"), frames:4, delay:10 });
+		sprites.set(SIZE_C_PART, { data:Assets.getBitmapData("img/parts_2.png"), frames:4, delay:10 });
+		sprites.set(SPLIT_A, { data:Assets.getBitmapData("img/split_0.png"), frames:2, delay:4 });
+		sprites.set(SPLIT_B, { data:Assets.getBitmapData("img/split_1.png"), frames:2, delay:4 });
 	}
 	
 	static public function getSheet (id:String) :SpriteSheet
