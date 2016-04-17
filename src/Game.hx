@@ -179,7 +179,7 @@ class Game extends Sprite
 
 		// Grind loop
 		if (isGrinding && !wasGrinding)
-			SoundMan.playLoop(SoundMan.GRIND, 0.25);
+			SoundMan.playLoop(SoundMan.GRIND, 0.5);
 		else if (!isGrinding)
 			SoundMan.stopLoop(SoundMan.GRIND);
 	}
