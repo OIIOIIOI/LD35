@@ -39,10 +39,15 @@ ApplicationMain.preload = function() {
 	openfl_Lib.get_current().addChild(ApplicationMain.preloader = new NMEPreloader());
 	ApplicationMain.preloader.onInit();
 	ApplicationMain.loadFile("img/aura.png");
+	ApplicationMain.loadFile("img/enemy_0.png");
+	ApplicationMain.loadFile("img/enemy_0a.png");
+	ApplicationMain.loadFile("img/enemy_1.png");
+	ApplicationMain.loadFile("img/enemy_2.png");
 	ApplicationMain.loadFile("img/enemy_a.png");
 	ApplicationMain.loadFile("img/enemy_b.png");
 	ApplicationMain.loadFile("img/player.png");
 	ApplicationMain.loadFile("img/test.png");
+	ApplicationMain.loadBinary("img/Untitled-1.psd");
 	var resourcePrefix = "NME_:bitmap_";
 	var _g2 = 0;
 	var _g11 = haxe_Resource.listNames();
@@ -899,10 +904,15 @@ var DefaultAssetLibrary = function() {
 	this.className = new haxe_ds_StringMap();
 	openfl_AssetLibrary.call(this);
 	this.add("img/aura.png",openfl_AssetType.IMAGE);
+	this.add("img/enemy_0.png",openfl_AssetType.IMAGE);
+	this.add("img/enemy_0a.png",openfl_AssetType.IMAGE);
+	this.add("img/enemy_1.png",openfl_AssetType.IMAGE);
+	this.add("img/enemy_2.png",openfl_AssetType.IMAGE);
 	this.add("img/enemy_a.png",openfl_AssetType.IMAGE);
 	this.add("img/enemy_b.png",openfl_AssetType.IMAGE);
 	this.add("img/player.png",openfl_AssetType.IMAGE);
 	this.add("img/test.png",openfl_AssetType.IMAGE);
+	this.add("img/Untitled-1.psd",openfl_AssetType.BINARY);
 };
 $hxClasses["DefaultAssetLibrary"] = DefaultAssetLibrary;
 DefaultAssetLibrary.__name__ = ["DefaultAssetLibrary"];
@@ -1093,7 +1103,7 @@ MovingEntity.prototype = $extend(Entity.prototype,{
 	,__class__: MovingEntity
 });
 var Enemy = function() {
-	this.sizes = [Sprites.SIZE_A,Sprites.SIZE_B,Sprites.SIZE_C,Sprites.SIZE_D];
+	this.sizes = [Sprites.SIZE_A,Sprites.SIZE_B,Sprites.SIZE_C];
 	MovingEntity.call(this);
 	this.currentSize = 0;
 	this.setAnim(this.sizes[this.currentSize]);
@@ -1102,7 +1112,7 @@ var Enemy = function() {
 	this.collList.push(CollType.AURA);
 	this.collList.push(CollType.PLAYER);
 	this.velMax = Std.random(2) * 2 - 1;
-	this.velMax *= (Std.random(10) + 5) / 10;
+	this.velMax *= (Std.random(10) + 10) / 10;
 	var angle = Math.random() * 6.28;
 	this.xVel = this.velMax * Math.cos(angle);
 	this.yVel = this.velMax * Math.sin(angle);
@@ -1739,14 +1749,12 @@ Sprites.init = function() {
 	Sprites.sprites.set(Sprites.PLAYER,value);
 	var value1 = { data : openfl_Assets.getBitmapData("img/aura.png"), frames : 1, delay : 0};
 	Sprites.sprites.set(Sprites.AURA,value1);
-	var value2 = { data : new openfl_display_BitmapData(12,12,false,-65281), frames : 1, delay : 0};
+	var value2 = { data : openfl_Assets.getBitmapData("img/enemy_0.png"), frames : 4, delay : 4};
 	Sprites.sprites.set(Sprites.SIZE_A,value2);
-	var value3 = { data : new openfl_display_BitmapData(16,16,false,-65281), frames : 1, delay : 0};
+	var value3 = { data : openfl_Assets.getBitmapData("img/enemy_1.png"), frames : 3, delay : 6};
 	Sprites.sprites.set(Sprites.SIZE_B,value3);
-	var value4 = { data : new openfl_display_BitmapData(20,20,false,-65281), frames : 1, delay : 0};
+	var value4 = { data : openfl_Assets.getBitmapData("img/enemy_2.png"), frames : 4, delay : 8};
 	Sprites.sprites.set(Sprites.SIZE_C,value4);
-	var value5 = { data : new openfl_display_BitmapData(26,26,false,-65281), frames : 1, delay : 0};
-	Sprites.sprites.set(Sprites.SIZE_D,value5);
 };
 Sprites.getSheet = function(id) {
 	if(Sprites.sprites == null || !Sprites.sprites.exists(id)) return null;
@@ -6336,9 +6344,9 @@ openfl_Lib.__init();
 	a.get_currentTarget = b.get_currentTarget;
 	a.set_currentTarget = b.set_currentTarget;
 })();
-ApplicationMain.config = { build : "232", company : "01101101", file : "LD35Haxe", fps : 60, name : "LD35Haxe", orientation : "", packageName : "com.m.LD35Haxe", version : "1.0.0", windows : [{ antialiasing : 0, background : 0, borderless : false, depthBuffer : false, display : 0, fullscreen : false, hardware : false, height : 640, parameters : "{}", resizable : true, stencilBuffer : true, title : "LD35Haxe", vsync : false, width : 640, x : null, y : null}]};
-ApplicationMain.AssetNames = ["img/aura.png","img/enemy_a.png","img/enemy_b.png","img/player.png","img/test.png"];
-ApplicationMain.AssetBytes = [2167,1052,1052,989,1052];
+ApplicationMain.config = { build : "251", company : "01101101", file : "LD35Haxe", fps : 60, name : "LD35Haxe", orientation : "", packageName : "com.m.LD35Haxe", version : "1.0.0", windows : [{ antialiasing : 0, background : 0, borderless : false, depthBuffer : false, display : 0, fullscreen : false, hardware : false, height : 640, parameters : "{}", resizable : true, stencilBuffer : true, title : "LD35Haxe", vsync : false, width : 640, x : null, y : null}]};
+ApplicationMain.AssetNames = ["img/aura.png","img/enemy_0.png","img/enemy_0a.png","img/enemy_1.png","img/enemy_2.png","img/enemy_a.png","img/enemy_b.png","img/player.png","img/test.png","img/Untitled-1.psd"];
+ApplicationMain.AssetBytes = [2105,3055,1167,1376,3360,1052,1052,989,1052,46182];
 Game.TAR = new openfl_geom_Rectangle();
 Game.TAP = new openfl_geom_Point();
 Game.WIDTH = 640;
@@ -6348,7 +6356,6 @@ Sprites.AURA = "aura";
 Sprites.SIZE_A = "size_a";
 Sprites.SIZE_B = "size_b";
 Sprites.SIZE_C = "size_c";
-Sprites.SIZE_D = "size_d";
 haxe_Unserializer.DEFAULT_RESOLVER = Type;
 haxe_Unserializer.BASE64 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789%:";
 haxe_ds_ObjectMap.count = 0;

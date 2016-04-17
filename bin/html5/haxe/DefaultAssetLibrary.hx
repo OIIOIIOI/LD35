@@ -25,10 +25,15 @@ class DefaultAssetLibrary extends openfl.AssetLibrary {
 		super();
 		// register assets:
 		add("img/aura.png", IMAGE);
+		add("img/enemy_0.png", IMAGE);
+		add("img/enemy_0a.png", IMAGE);
+		add("img/enemy_1.png", IMAGE);
+		add("img/enemy_2.png", IMAGE);
 		add("img/enemy_a.png", IMAGE);
 		add("img/enemy_b.png", IMAGE);
 		add("img/player.png", IMAGE);
 		add("img/test.png", IMAGE);
+		add("img/Untitled-1.psd", BINARY);
 		//
 	}
 	

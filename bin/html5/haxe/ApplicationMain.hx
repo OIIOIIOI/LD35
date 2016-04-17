@@ -18,7 +18,7 @@ import js.html.ProgressEvent;
 class ApplicationMain {
 	#if (lime >= "2.6.0")
 	public static var config:lime.app.Config = {
-		build: "232",
+		build: "251",
 		company: "01101101",
 		file: "LD35Haxe",
 		fps: 60,
@@ -105,10 +105,15 @@ class ApplicationMain {
 		
 		// assets:
 		loadFile("img/aura.png");
+		loadFile("img/enemy_0.png");
+		loadFile("img/enemy_0a.png");
+		loadFile("img/enemy_1.png");
+		loadFile("img/enemy_2.png");
 		loadFile("img/enemy_a.png");
 		loadFile("img/enemy_b.png");
 		loadFile("img/player.png");
 		loadFile("img/test.png");
+		loadBinary("img/Untitled-1.psd");
 		
 		// bitmaps:
 		var resourcePrefix = "NME_:bitmap_";
@@ -267,10 +272,15 @@ class ApplicationMain {
 			assetBytes.push(size);
 		}
 		addAsset("img/aura.png", "assets/img/aura.png");
+		addAsset("img/enemy_0.png", "assets/img/enemy_0.png");
+		addAsset("img/enemy_0a.png", "assets/img/enemy_0a.png");
+		addAsset("img/enemy_1.png", "assets/img/enemy_1.png");
+		addAsset("img/enemy_2.png", "assets/img/enemy_2.png");
 		addAsset("img/enemy_a.png", "assets/img/enemy_a.png");
 		addAsset("img/enemy_b.png", "assets/img/enemy_b.png");
 		addAsset("img/player.png", "assets/img/player.png");
 		addAsset("img/test.png", "assets/img/test.png");
+		addAsset("img/Untitled-1.psd", "assets/img/Untitled-1.psd");
 		
 		var fields = Context.getBuildFields();
 		

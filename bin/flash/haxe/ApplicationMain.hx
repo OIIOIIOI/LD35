@@ -34,6 +34,22 @@ class ApplicationMain {
 		types.push (lime.Assets.AssetType.IMAGE);
 		
 		
+		urls.push ("img/enemy_0.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("img/enemy_0a.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("img/enemy_1.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("img/enemy_2.png");
+		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
 		urls.push ("img/enemy_a.png");
 		types.push (lime.Assets.AssetType.IMAGE);
 		
@@ -48,6 +64,10 @@ class ApplicationMain {
 		
 		urls.push ("img/test.png");
 		types.push (lime.Assets.AssetType.IMAGE);
+		
+		
+		urls.push ("img/Untitled-1.psd");
+		types.push (lime.Assets.AssetType.BINARY);
 		
 		
 		
@@ -111,7 +131,7 @@ class ApplicationMain {
 		
 		config = {
 			
-			build: "226",
+			build: "252",
 			company: "01101101",
 			file: "LD35Haxe",
 			fps: 60,

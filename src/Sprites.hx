@@ -15,7 +15,6 @@ class Sprites
 	static public var SIZE_A:String = "size_a";
 	static public var SIZE_B:String = "size_b";
 	static public var SIZE_C:String = "size_c";
-	static public var SIZE_D:String = "size_d";
 	
 	static var sprites:Map<String, SpriteSheet>;
 
@@ -26,10 +25,9 @@ class Sprites
 		// sprites.set(SIZE_A, { data:Assets.getBitmapData("img/test.png"), frames:2, delay:10 });
 		sprites.set(PLAYER, { data:Assets.getBitmapData("img/player.png"), frames:1, delay:0 });
 		sprites.set(AURA, { data:Assets.getBitmapData("img/aura.png"), frames:1, delay:0 });
-		sprites.set(SIZE_A, { data:new BitmapData(12, 12, false, 0xFFFF00FF), frames:1, delay:0 });
-		sprites.set(SIZE_B, { data:new BitmapData(16, 16, false, 0xFFFF00FF), frames:1, delay:0 });
-		sprites.set(SIZE_C, { data:new BitmapData(20, 20, false, 0xFFFF00FF), frames:1, delay:0 });
-		sprites.set(SIZE_D, { data:new BitmapData(26, 26, false, 0xFFFF00FF), frames:1, delay:0 });
+		sprites.set(SIZE_A, { data:Assets.getBitmapData("img/enemy_0.png"), frames:4, delay:4 });
+		sprites.set(SIZE_B, { data:Assets.getBitmapData("img/enemy_1.png"), frames:3, delay:6 });
+		sprites.set(SIZE_C, { data:Assets.getBitmapData("img/enemy_2.png"), frames:4, delay:8 });
 	}
 	
 	static public function getSheet (id:String) :SpriteSheet

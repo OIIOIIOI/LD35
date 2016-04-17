@@ -57,12 +57,25 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		
 		
+		
+		
+		
+		
+		
 		#end
 		
 		#if flash
 		
 		className.set ("img/aura.png", __ASSET__img_aura_png);
 		type.set ("img/aura.png", AssetType.IMAGE);
+		className.set ("img/enemy_0.png", __ASSET__img_enemy_0_png);
+		type.set ("img/enemy_0.png", AssetType.IMAGE);
+		className.set ("img/enemy_0a.png", __ASSET__img_enemy_0a_png);
+		type.set ("img/enemy_0a.png", AssetType.IMAGE);
+		className.set ("img/enemy_1.png", __ASSET__img_enemy_1_png);
+		type.set ("img/enemy_1.png", AssetType.IMAGE);
+		className.set ("img/enemy_2.png", __ASSET__img_enemy_2_png);
+		type.set ("img/enemy_2.png", AssetType.IMAGE);
 		className.set ("img/enemy_a.png", __ASSET__img_enemy_a_png);
 		type.set ("img/enemy_a.png", AssetType.IMAGE);
 		className.set ("img/enemy_b.png", __ASSET__img_enemy_b_png);
@@ -71,12 +84,30 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("img/player.png", AssetType.IMAGE);
 		className.set ("img/test.png", __ASSET__img_test_png);
 		type.set ("img/test.png", AssetType.IMAGE);
+		className.set ("img/Untitled-1.psd", __ASSET__img_untitled_1_psd);
+		type.set ("img/Untitled-1.psd", AssetType.BINARY);
 		
 		
 		#elseif html5
 		
 		var id;
 		id = "img/aura.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/enemy_0.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/enemy_0a.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/enemy_1.png";
+		path.set (id, id);
+		
+		type.set (id, AssetType.IMAGE);
+		id = "img/enemy_2.png";
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
@@ -96,6 +127,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 		path.set (id, id);
 		
 		type.set (id, AssetType.IMAGE);
+		id = "img/Untitled-1.psd";
+		path.set (id, id);
+		
+		type.set (id, AssetType.BINARY);
 		
 		
 		var assetsPrefix = null;
@@ -117,6 +152,18 @@ class DefaultAssetLibrary extends AssetLibrary {
 		className.set ("img/aura.png", __ASSET__img_aura_png);
 		type.set ("img/aura.png", AssetType.IMAGE);
 		
+		className.set ("img/enemy_0.png", __ASSET__img_enemy_0_png);
+		type.set ("img/enemy_0.png", AssetType.IMAGE);
+		
+		className.set ("img/enemy_0a.png", __ASSET__img_enemy_0a_png);
+		type.set ("img/enemy_0a.png", AssetType.IMAGE);
+		
+		className.set ("img/enemy_1.png", __ASSET__img_enemy_1_png);
+		type.set ("img/enemy_1.png", AssetType.IMAGE);
+		
+		className.set ("img/enemy_2.png", __ASSET__img_enemy_2_png);
+		type.set ("img/enemy_2.png", AssetType.IMAGE);
+		
 		className.set ("img/enemy_a.png", __ASSET__img_enemy_a_png);
 		type.set ("img/enemy_a.png", AssetType.IMAGE);
 		
@@ -128,6 +175,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		className.set ("img/test.png", __ASSET__img_test_png);
 		type.set ("img/test.png", AssetType.IMAGE);
+		
+		className.set ("img/Untitled-1.psd", __ASSET__img_untitled_1_psd);
+		type.set ("img/Untitled-1.psd", AssetType.BINARY);
 		
 		
 		if (useManifest) {
@@ -774,13 +824,23 @@ class DefaultAssetLibrary extends AssetLibrary {
 #if flash
 
 @:keep @:bind #if display private #end class __ASSET__img_aura_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_enemy_0_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_enemy_0a_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_enemy_1_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_enemy_2_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_enemy_a_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_enemy_b_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_player_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
 @:keep @:bind #if display private #end class __ASSET__img_test_png extends flash.display.BitmapData { public function new () { super (0, 0, true, 0); } }
+@:keep @:bind #if display private #end class __ASSET__img_untitled_1_psd extends flash.utils.ByteArray { }
 
 
 #elseif html5
+
+
+
+
+
 
 
 
@@ -797,10 +857,15 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 
 @:image("assets/img/aura.png") #if display private #end class __ASSET__img_aura_png extends lime.graphics.Image {}
+@:image("assets/img/enemy_0.png") #if display private #end class __ASSET__img_enemy_0_png extends lime.graphics.Image {}
+@:image("assets/img/enemy_0a.png") #if display private #end class __ASSET__img_enemy_0a_png extends lime.graphics.Image {}
+@:image("assets/img/enemy_1.png") #if display private #end class __ASSET__img_enemy_1_png extends lime.graphics.Image {}
+@:image("assets/img/enemy_2.png") #if display private #end class __ASSET__img_enemy_2_png extends lime.graphics.Image {}
 @:image("assets/img/enemy_a.png") #if display private #end class __ASSET__img_enemy_a_png extends lime.graphics.Image {}
 @:image("assets/img/enemy_b.png") #if display private #end class __ASSET__img_enemy_b_png extends lime.graphics.Image {}
 @:image("assets/img/player.png") #if display private #end class __ASSET__img_player_png extends lime.graphics.Image {}
 @:image("assets/img/test.png") #if display private #end class __ASSET__img_test_png extends lime.graphics.Image {}
+@:file("assets/img/Untitled-1.psd") #if display private #end class __ASSET__img_untitled_1_psd extends lime.utils.Bytes {}
 
 
 

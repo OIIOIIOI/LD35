@@ -5,7 +5,7 @@ import Entity;
 class Enemy extends MovingEntity
 {
 
-	var sizes = [Sprites.SIZE_A, Sprites.SIZE_B, Sprites.SIZE_C, Sprites.SIZE_D];
+	var sizes = [Sprites.SIZE_A, Sprites.SIZE_B, Sprites.SIZE_C];
 	var currentSize:Int;
 
 	var growTick:Int;
@@ -25,7 +25,7 @@ class Enemy extends MovingEntity
 		collList.push(CollType.PLAYER);
 
 		velMax = Std.random(2)*2-1;
-		velMax *= (Std.random(10)+5)/10;
+		velMax *= (Std.random(10)+10)/10;
 		var angle = Math.random()*6.28;
 		xVel = velMax * Math.cos(angle);
 		yVel = velMax * Math.sin(angle);
