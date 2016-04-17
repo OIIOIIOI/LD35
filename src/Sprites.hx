@@ -26,8 +26,8 @@ class Sprites
 		sprites.set(PLAYER, { data:Assets.getBitmapData("img/player.png"), frames:1, delay:0 });
 		sprites.set(AURA, { data:Assets.getBitmapData("img/aura.png"), frames:1, delay:0 });
 		sprites.set(SIZE_A, { data:Assets.getBitmapData("img/enemy_0.png"), frames:4, delay:4 });
-		sprites.set(SIZE_B, { data:Assets.getBitmapData("img/enemy_1.png"), frames:3, delay:6 });
-		sprites.set(SIZE_C, { data:Assets.getBitmapData("img/enemy_2.png"), frames:4, delay:8 });
+		sprites.set(SIZE_B, { data:Assets.getBitmapData("img/enemy_1.png"), frames:12, delay:6 });
+		sprites.set(SIZE_C, { data:Assets.getBitmapData("img/enemy_2b.png"), frames:2, delay:8 });
 	}
 	
 	static public function getSheet (id:String) :SpriteSheet

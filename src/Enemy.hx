@@ -11,7 +11,7 @@ class Enemy extends MovingEntity
 	var growTick:Int;
 	var growDelay:Int;
 	public var isInAura:Bool;
-	
+
 	public function new ()
 	{
 		super();
@@ -25,7 +25,7 @@ class Enemy extends MovingEntity
 		collList.push(CollType.PLAYER);
 
 		velMax = Std.random(2)*2-1;
-		velMax *= (Std.random(10)+10)/10;
+		velMax *= (Std.random(10) + 10) / 10;
 		var angle = Math.random()*6.28;
 		xVel = velMax * Math.cos(angle);
 		yVel = velMax * Math.sin(angle);
@@ -64,8 +64,7 @@ class Enemy extends MovingEntity
 			if (growTick == 0 && currentSize < sizes.length-1)
 			{
 				currentSize++;
-				setAnim(sizes[currentSize]);
-				collRadius = cx;
+				applySize(true);
 
 				growTick = growDelay;
 			}
@@ -82,14 +81,28 @@ class Enemy extends MovingEntity
 				if (currentSize > 0)
 				{
 					currentSize--;
-					setAnim(sizes[currentSize]);
-					collRadius = cx;
+					applySize(false);
 
 					growTick = 0;
 				}
 				else
 					die();
 			}
+		}
+	}
+
+	function applySize (up:Bool = true)
+	{
+		setAnim(sizes[currentSize]);
+		collRadius = cx;
+
+		var mod = 1.2;
+		if (up) {
+			xVel *= 1/mod;
+			yVel *= 1/mod;
+		} else {
+			xVel *= mod;
+			yVel *= mod;
 		}
 	}
 
