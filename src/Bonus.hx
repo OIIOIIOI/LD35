@@ -28,6 +28,7 @@ class Bonus extends MovingEntity
 
 	public function pickUp ()
 	{
+		SoundMan.playOnce(SoundMan.PICKUP, 0.6);
 		UI.INST.addToScore(250);
 		isDead = true;
 	}

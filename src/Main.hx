@@ -19,6 +19,9 @@ class Main extends Sprite
 		Controls.init();
 		Sprites.init();
 		UI.init();
+		SoundMan.init();
+
+		// SoundMan.playLoop(SoundMan.GRIND);
 
 		Lib.current.stage.addChild(new Game());
 	}

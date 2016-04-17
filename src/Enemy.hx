@@ -163,6 +163,7 @@ class Enemy extends MovingEntity
 
 	function die ()
 	{
+		SoundMan.playOnce(SoundMan.ENEMY_DEATH, 0.8);
 		isDead = true;
 	}
 

@@ -46,6 +46,8 @@ class Game extends Sprite
 	var shakeTick:Int;
 	var shakeMode:ShakeMode;
 
+	var isGrinding:Bool;
+
 	var hasGameStarted:Bool;
 	var hasGameEnded:Bool;
 
@@ -81,7 +83,7 @@ class Game extends Sprite
 		shakeTick = 0;
 		shakeMode = ShakeMode.FIXED;
 
-		hasGameStarted = hasGameEnded = false;
+		hasGameStarted = hasGameEnded = isGrinding = false;
 
 		if (player == null)
 			player = new Player();
@@ -135,6 +137,8 @@ class Game extends Sprite
 		}
 
 		// Collision checks
+		var wasGrinding = isGrinding;
+		isGrinding = false;
 		checkCollisions();
 
 		// Clean up dead entities
@@ -172,6 +176,12 @@ class Game extends Sprite
 			canvas.x = canvas.y = -shakeOffset;
 			shakeTick--;
 		}
+
+		// Grind loop
+		if (isGrinding && !wasGrinding)
+			SoundMan.playLoop(SoundMan.GRIND, 0.25);
+		else if (!isGrinding)
+			SoundMan.stopLoop(SoundMan.GRIND);
 	}
 
 	function spawnEnemy (playerOnTop:Bool = true)
@@ -284,6 +294,7 @@ class Game extends Sprite
 	function enemyInAura (e:Enemy)
 	{
 		e.isInAura = true;
+		isGrinding = true;
 	}
 	
 	public function getDistance (ea:Entity, eb:Entity) :Float
