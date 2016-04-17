@@ -1,6 +1,7 @@
 package;
 
 import openfl.display.Sprite;
+import openfl.geom.Point;
 import openfl.Lib;
 import openfl.Assets;
 
