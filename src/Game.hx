@@ -155,7 +155,7 @@ class Game extends Sprite
 			// Spawn
 			spawnTick--;
 			if (spawnTick == 0) {
-				spawnEnemy();
+				preSpawnEnemy();
 				spawnTick = spawnDelay;
 			}
 			// Update UI
@@ -227,16 +227,21 @@ class Game extends Sprite
 			SoundMan.stopLoop(SoundMan.GRIND);
 	}
 
-	function spawnEnemy (playerOnTop:Bool = true)
+	function preSpawnEnemy ()
 	{
-		var e = new Enemy(0);
 		var xx = player.x;
 		var yy = player.y;
 		while (getDistanceXY(xx, yy, player.x, player.y) <= Sprites.getSheet(Sprites.AURA).data.height/2)
 		{
-			xx = Std.random(WIDTH - 2*e.cx);
-			yy = Std.random(HEIGHT - 2*e.cy);
+			xx = Std.random(WIDTH - 2);
+			yy = Std.random(HEIGHT - 2);
 		}
+		spawnParticles(ParticleType.APPEAR, xx, yy);
+	}
+
+	public function spawnEnemy (xx:Float, yy:Float)
+	{
+		var e = new Enemy(0);
 		e.x = xx;
 		e.y = yy;
 		spawnEntity(e);

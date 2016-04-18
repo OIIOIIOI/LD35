@@ -34,12 +34,17 @@ class Particle extends MovingEntity {
 			case ParticleType.SPLIT_A:
 				var sheet = Sprites.getSheet(Sprites.SPLIT_A);
 				lifetime = sheet.frames * sheet.delay;
-				setAnim(Sprites.SPLIT_A);
+				setAnim(Sprites.SPLIT_A); 
 
 			case ParticleType.SPLIT_B:
 				var sheet = Sprites.getSheet(Sprites.SPLIT_B);
 				lifetime = sheet.frames * sheet.delay;
 				setAnim(Sprites.SPLIT_B);
+
+			case ParticleType.APPEAR:
+				var sheet = Sprites.getSheet(Sprites.APPEAR);
+				lifetime = sheet.frames * sheet.delay;
+				setAnim(Sprites.APPEAR);
 
 			default:
 				lifetime = 80 + Std.random(120);
@@ -55,7 +60,11 @@ class Particle extends MovingEntity {
 		
 		lifetime--;
 		if (lifetime <= 0)
+		{
 			isDead = true;
+			if (spriteID == Sprites.APPEAR)
+				Game.INST.spawnEnemy(x, y);
+		}
 	}
 	
 }
@@ -68,4 +77,5 @@ enum ParticleType
 	SIZE_C_PART;
 	SPLIT_A;
 	SPLIT_B;
+	APPEAR;
 }

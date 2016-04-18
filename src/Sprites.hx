@@ -32,6 +32,7 @@ class Sprites
 	static public var SIZE_C_PART:String = "size_c_part";
 	static public var SPLIT_A:String = "split_a";
 	static public var SPLIT_B:String = "split_b";
+	static public var APPEAR:String = "appear";
 	
 	static var sprites:Map<String, SpriteSheet>;
 
@@ -61,6 +62,7 @@ class Sprites
 		sprites.set(SIZE_C_PART, { data:Assets.getBitmapData("img/parts_2.png"), frames:4, delay:10 });
 		sprites.set(SPLIT_A, { data:Assets.getBitmapData("img/split_0.png"), frames:2, delay:4 });
 		sprites.set(SPLIT_B, { data:Assets.getBitmapData("img/split_1.png"), frames:2, delay:4 });
+		sprites.set(APPEAR, { data:Assets.getBitmapData("img/appear.png"), frames:4, delay:8 });
 	}
 	
 	static public function getSheet (id:String) :SpriteSheet
