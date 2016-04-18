@@ -37,6 +37,8 @@ class Game extends Sprite
 
 	var title:Title;
 
+	var background:Array<Entity>;
+
 	public var player:Player;
 	var aura:Aura;
 
@@ -77,6 +79,7 @@ class Game extends Sprite
 
 	function reset (first:Bool = false)
 	{
+		background = [];
 		entities = [];
 		particles = [];
 
@@ -91,11 +94,13 @@ class Game extends Sprite
 			player = new Player();
 		entities.remove(player);
 		entities.push(player);
-		player.x = 310;
+		player.x = 322;
 		player.y = 355;
 		// player.x = WIDTH / 2;
 		// player.y = HEIGHT / 2;
 		player.currentMove = Move.DEFAULT;
+
+		setupBackground();
 
 		UI.INST.reset(first);
 
@@ -105,6 +110,23 @@ class Game extends Sprite
 			title.x = title.y = shakeOffset;
 			entities.push(title);
 		}
+	}
+
+	function setupBackground ()
+	{
+		var e:Background;
+		e = new Background(Sprites.BG_F, 30);
+		background.push(e);
+		e = new Background(Sprites.BG_E, 20);
+		background.push(e);
+		e = new Background(Sprites.BG_D, 30);
+		background.push(e);
+		e = new Background(Sprites.BG_C, 40);
+		background.push(e);
+		e = new Background(Sprites.BG_B, 20);
+		background.push(e);
+		e = new Background(Sprites.BG_A, 30);
+		background.push(e);
 	}
 
 	function startGame ()
@@ -148,6 +170,11 @@ class Game extends Sprite
 		{
 			if (Controls.isDown(Keyboard.SPACE))
 				reset();
+		}
+
+		// Update background
+		for (e in background) {
+			e.update();
 		}
 
 		// Update entities
@@ -331,6 +358,10 @@ class Game extends Sprite
 	{
 		// Render all graphics
 		canvasData.fillRect(canvasData.rect, 0xFF11111F);
+		// Render background
+		for (e in background) {
+			Sprites.draw(canvasData, e.spriteID, e.x + e.rox, e.y + e.roy, e.frame);
+		}
 		// Render entities
 		for (e in entities) {
 			Sprites.draw(canvasData, e.spriteID, e.x + e.rox, e.y + e.roy, e.frame);
@@ -361,11 +392,18 @@ class Game extends Sprite
 	{
 		SoundMan.playOnce(SoundMan.PLAYER_DEATH);
 		shake(5, 60);
+
 		hasGameEnded = true;
+
 		player.currentMove = Move.STATIC;
 		player.xVel = player.yVel = 0;
 		entities.remove(player);
 		entities.remove(aura);
+
+		var e = new GameOver();
+		e.x = WIDTH / 2 - e.cx + shakeOffset;
+		e.y = HEIGHT / 2 - e.cy + shakeOffset;
+		entities.push(e);
 	}
 
 }
