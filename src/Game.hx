@@ -317,13 +317,16 @@ class Game extends Sprite
 					continue;
 				// Resolve collision if entities are effectively colliding
 				var dist = getDistance(ea, eb);
-				if (dist < ea.collRadius + eb.collRadius)
-					resolveCollision(ea, eb, dist);
+				if (dist < ea.collRadius + eb.collRadius) {
+					var continueLoop = resolveCollision(ea, eb, dist);
+					if (!continueLoop)
+						return;
+				}
 			}
 		}
 	}
 	
-	function resolveCollision (ea:Entity, eb:Entity, dist:Float)
+	function resolveCollision (ea:Entity, eb:Entity, dist:Float) :Bool
 	{
 		// Enemy/Aura collisions
 		if (Std.is(ea, Aura) && Std.is(eb, Enemy))
@@ -335,8 +338,12 @@ class Game extends Sprite
 		else if (Std.is(ea, Bonus) && Std.is(eb, Player))
 			cast(ea, Bonus).pickUp();
 		// Player/anything collisions
-		else if (Std.is(ea, Player) || Std.is(eb, Player))
+		else if (Std.is(ea, Player) || Std.is(eb, Player)) {
 			endGame();
+			return false;
+		}
+
+		return true;
 	}
 
 	function enemyInAura (e:Enemy)
@@ -409,6 +416,11 @@ class Game extends Sprite
 		e.x = WIDTH / 2 - e.cx + shakeOffset;
 		e.y = HEIGHT / 2 - e.cy + shakeOffset;
 		entities.push(e);
+
+		for (e in entities) {
+			if (Std.is(e, Bonus))
+				cast(e, Bonus).pickUp();
+		}
 	}
 
 }
