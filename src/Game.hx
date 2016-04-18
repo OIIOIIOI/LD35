@@ -96,8 +96,6 @@ class Game extends Sprite
 		entities.push(player);
 		player.x = 322;
 		player.y = 355;
-		// player.x = WIDTH / 2;
-		// player.y = HEIGHT / 2;
 		player.currentMove = Move.DEFAULT;
 
 		setupBackground();
@@ -233,8 +231,8 @@ class Game extends Sprite
 		var yy = player.y;
 		while (getDistanceXY(xx, yy, player.x, player.y) <= Sprites.getSheet(Sprites.AURA).data.height/2)
 		{
-			xx = Std.random(WIDTH - 2);
-			yy = Std.random(HEIGHT - 2);
+			xx = Std.random(WIDTH) + shakeOffset;
+			yy = Std.random(HEIGHT) + shakeOffset;
 		}
 		spawnParticles(ParticleType.APPEAR, xx, yy);
 	}
