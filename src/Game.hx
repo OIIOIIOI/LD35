@@ -35,6 +35,8 @@ class Game extends Sprite
 	var entities:Array<Entity>;
 	var particles:Array<Particle>;
 
+	var title:Title;
+
 	public var player:Player;
 	var aura:Aura;
 
@@ -68,12 +70,12 @@ class Game extends Sprite
 
 		addChild(UI.INST.canvas);
 
-		reset();
+		reset(true);
 
 		addEventListener(Event.ENTER_FRAME, update);
 	}
 
-	function reset ()
+	function reset (first:Bool = false)
 	{
 		entities = [];
 		particles = [];
@@ -89,15 +91,25 @@ class Game extends Sprite
 			player = new Player();
 		entities.remove(player);
 		entities.push(player);
-		player.x = WIDTH / 2;
-		player.y = HEIGHT / 2;
-		player.currentMove = Move.CONTROLLED;
+		player.x = 310;
+		player.y = 355;
+		// player.x = WIDTH / 2;
+		// player.y = HEIGHT / 2;
+		player.currentMove = Move.DEFAULT;
 
-		UI.INST.reset();
+		UI.INST.reset(first);
+
+		if (first)
+		{
+			title = new Title();
+			title.x = title.y = shakeOffset;
+			entities.push(title);
+		}
 	}
 
 	function startGame ()
 	{
+
 		if (aura == null)
 			aura = new Aura();
 		aura.x = player.x;
@@ -105,6 +117,11 @@ class Game extends Sprite
 		entities.remove(aura);
 		entities.push(aura);
 
+		title.isDead = true;
+		UI.INST.reset();
+
+		player.currentMove = Move.CONTROLLED;
+		
 		hasGameStarted = true;
 	}
 	
@@ -119,6 +136,8 @@ class Game extends Sprite
 				spawnEnemy();
 				spawnTick = spawnDelay;
 			}
+			// Update UI
+			UI.INST.update();
 		}
 		else if (!hasGameStarted)
 		{
@@ -156,9 +175,6 @@ class Game extends Sprite
 		}
 		// Clean up dead particles
 		particles = particles.filter(filterDead);
-
-		// Update UI
-		UI.INST.update();
 
 		// Render
 		render();

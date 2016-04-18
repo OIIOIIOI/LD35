@@ -17,6 +17,7 @@ class Sprites
 	static public var AURA:String = "aura";
 	static public var BONUS:String = "bonus";
 	static public var FONT:String = "font";
+	static public var TITLE:String = "title";
 
 	static public var DEFAULT_PART:String = "default_part";
 	static public var SIZE_A_PART:String = "size_a_part";
@@ -38,6 +39,7 @@ class Sprites
 		sprites.set(AURA, { data:Assets.getBitmapData("img/aura.png"), frames:1, delay:0 });
 		sprites.set(BONUS, { data:Assets.getBitmapData("img/bonus.png"), frames:2, delay:10 });
 		sprites.set(FONT, { data:Assets.getBitmapData("img/font.png"), frames:10, delay:0 });
+		sprites.set(TITLE, { data:Assets.getBitmapData("img/title.png"), frames:1, delay:0 });
 		
 		sprites.set(DEFAULT_PART, { data:new BitmapData(2, 2, false, 0xFFFFFFFF), frames:1, delay:0 });
 		sprites.set(SIZE_A_PART, { data:Assets.getBitmapData("img/parts_0.png"), frames:4, delay:10 });

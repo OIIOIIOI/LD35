@@ -16,7 +16,7 @@ class UI
 	var scoreLetters:Array<UILetter>;
 
 	var score = 0;
-	var numLetters = 10;
+	var numLetters = 8;
 	var letterSpacing = 2;
 
 	static public function init ()
@@ -63,11 +63,14 @@ class UI
 		}
 	}
 
-	public function reset ()
+	public function reset (logoScore:Bool = false)
 	{
 		entities = [];
 		scoreLetters = [];
-		score = 0;
+		if (logoScore)
+			score = 1101101;
+		else
+			score = 0;
 
 		var fontSheet = Sprites.getSheet(Sprites.FONT);
 		var letterWidth = fontSheet.data.width / fontSheet.frames;
@@ -84,6 +87,7 @@ class UI
 			entities.push(e);
 			scoreLetters.push(e);
 		}
+		updateScore();
 	}
 
 	public function addToScore (v:Int)
