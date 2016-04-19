@@ -1,26 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 	<head>
 		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="chrome=1, IE=edge">
-		<meta http-equiv='pragma' content='no-cache' />
-		<meta name='apple-mobile-web-app-capable' content='yes' />
-		<meta name='viewport' content='initial-scale=1.0, maximum-scale=1.0, user-scalable=0, width=device-width, height=device-height' />
-		<meta name='apple-mobile-web-app-status-bar-style' content='black-translucent' />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>SWARM BLAST - LD35 - 01101101</title>
-		<style>
-			body>div:first-of-type {
-				width: 640px !important;
-				height: 640px !important;
-			}
-		</style>
+		<link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="style.css">
 	</head>
-	<body style="padding: 0; margin: 0; background-color: #000000;">
+
+	<body>
+
 		<div id="flash_content"></div>
+
+		<p class="keys">
+			PRESS <strong>SPACE</strong> TO START/RESTART<br>
+			USE THE <strong>ARROW KEYS</strong> TO MOVE
+		</p>
+		<p>
+			Try to last as long as possible by avoiding or destroying the moving Shapes.<br>
+			The flashing area around yourself burns and destroys Shapes but the white circle in the center is vulnerable.<br>
+			Orange and Red Shapes split into too smaller Shapes when destroyed.
+		</p>
+		<p>
+			Made by <a href="http://01101101.fr">01101101</a> in 48h for <a href="http://ludumdare.com/compo/ludum-dare-35/?action=preview&uid=5105">Ludum Dare 35</a>
+		</p>
+		<p class="credits">
+			Thanks to <span class="green">Captain CAPSLOCK</span>, <span class="green">Grmpf</span>, <span class="green">Clément</span> and <span class="green">Greg</span> for their feedback<br>
+			Thanks to <span class="green">Sophie</span> and <span class="green">Hélene</span> for the burgers and cake<br>
+			Thanks to <span class="green">Pascale</span> and <span class="green">Christophe</span> for the table and chairs :)
+		</p>
+		<p class="credits">
+			Back to the <a href="index.html">HTML5 version</a>
+		</p>
+
 		<script type="text/javascript" src="swfobject.js"></script>
 		<script>
 			var el = document.getElementById("flash_content");
 			swfobject.embedSWF("LD35Haxe.swf", el, 640, 640, 10, "expressInstall.swf");
 		</script>
+
 	</body>
+
 </html>
